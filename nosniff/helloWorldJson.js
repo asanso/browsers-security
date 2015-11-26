@@ -7,8 +7,9 @@ var resource = {
 };
 
 app.get("/helloWorldJson", function(req, res){
-  res.json(resource);
-}
+  //res.json(resource);
+  res.send("<script>alert('')</script>");
+});
 
 var server = app.listen(9002, 'localhost', function () {
   var host = server.address().address;
