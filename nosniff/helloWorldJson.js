@@ -6,7 +6,7 @@ var resource = {
 	"name": "Protected Resource"
 };
 
-app.get("/oauth/authorize", function(req, res){
+app.get("/helloWorldJson", function(req, res){
   res.json(resource);
 }
 
