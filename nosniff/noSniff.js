@@ -2,10 +2,10 @@ var express = require("express");
 
 var app = express();
 
-/*app.use(function (req, res, next) {	 
-	res.setHeader('X-Content-Type-Options', 'no-sniff');
+app.use(function (req, res, next) {	 
+	res.setHeader('X-Content-Type-Options', 'nosniff');
 	next();
-});*/
+});
 
 app.use('/', express.static('files'));
 
