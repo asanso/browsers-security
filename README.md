@@ -9,4 +9,4 @@
 * CSP
 * CORS
 * HSTS
-* Subresource Integrity
+* Subresource Integrity §
