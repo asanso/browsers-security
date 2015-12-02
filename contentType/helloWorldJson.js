@@ -1,9 +1,17 @@
 var express = require("express");
 var app = express();
 
-app.get("/helloWorld.json", function(req, res){
+var resource = {
+	"helloWorld" : ""
+};
+
+app.get("/", function(req, res){
   var name = req.query.name;
+  resource.helloWorld = name;
+
   res.send('{"helloWorld": "'+name+'"}');
+  //res.json(resource);
+
 });
 
 var server = app.listen(9002, 'localhost', function () {
