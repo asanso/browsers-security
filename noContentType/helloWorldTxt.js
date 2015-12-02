@@ -1,6 +1,7 @@
 //Lets require/import the HTTP module
 var http = require('http');
 var url = require('url');
+var nosql = require('nosql').load('database.nosql');
 
 //Lets define a port we want to listen to
 const PORT=9002; 
@@ -9,8 +10,28 @@ const PORT=9002;
 function handleRequest(request, response){
 	var url_parts = url.parse(request.url, true);
 	var query = url_parts.query;
-	//response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('Hello World'+query.name);
+	//response.setHeader('Content-Type', 'text/plain');
+	//response.setHeader('X-Content-Type-Options', 'nosniff');
+    if (query.name) {
+    	nosql.insert(query.name);
+    	response.writeHead(302,
+ 		 {Location: '/'}
+		);
+		response.end();
+    } else {    	
+    	nosql.one(function(name) {
+    		return name; ;
+    	},function(err, name) {
+		if (name) {			 
+			nosql.clear();
+			response.end('Hello World '+name);
+
+			return;
+		} else {			 
+			response.end('Hello World');
+			return;
+		}});
+    }
 }
 
 //Create a server
