@@ -1,12 +1,12 @@
 # browsers-security
 
-* noContentType §
-* ContentType §
-* no-sniff 
+* noContentType § ^
+* ContentType § ^
+* no-sniff ^
 * no-sniff Firefox §
 * special case CSV
 * Content Disposition
-* CSP
+* CSP ^
 * CORS
-* HSTS
+* HSTS ^
 * Subresource Integrity §
